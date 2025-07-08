@@ -11,6 +11,7 @@ Set up a basic CI/CD pipeline for a simple web application, deploy it to Azure, 
      - An Azure App Service to host a simple web application (e.g., Node.js or .NET Core) using the free tier.
      - An Azure SQL Database or Azure Cosmos DB as the backend, utilizing the free tier options. 
    - Ensure the web app is accessible via a public URL.
+   - You may choose either Node.js or .NET 8 for the application. Keep it minimal—a basic "Hello World" page with a database connection is enough.
 
 ### CI/CD Pipeline
 2. **Set Up Basic CI/CD Pipeline using GitHub Actions**:
@@ -18,15 +19,18 @@ Set up a basic CI/CD pipeline for a simple web application, deploy it to Azure, 
    - Run unit tests.
    - Build and package the application.
    - Deploy the application to the Azure App Service.
+   - If you prefer, placeholder or minimal tests are acceptable. Focus on demonstrating CI/CD integration.
 
 ### Monitoring
 3. **Implement Basic Monitoring**:
    - Use Azure Monitor to set up alerts for CPU usage and HTTP error rates.
    - Ensure logs are collected using Azure Log Analytics, keeping within the 5 GB free tier limit.
+   - Ensure the application exposes a health check endpoint (e.g., /healthz).
 
 ### Security
 4. **Secure the Setup**:
-   - Use Azure Key Vault to securely manage and access database credentials.
+   - Use Azure Key Vault to manage sensitive values (e.g., DB connection strings).
+   - Reference Key Vault values securely in your deployment (e.g., via GitHub Actions secrets or App Service bindings).
    - Set up SSL/TLS for the web application using the free App Service Managed Certificate.
 
 ### Scalability
@@ -60,28 +64,42 @@ The repository should include the following:
 - **Overview**: Provide a brief description of the project, including the purpose of the web application and the CI/CD pipeline.
 - **Setup Instructions**: Step-by-step instructions on how to:
    - Clone the repository.
-   - Set up the Azure infrastructure.
-   - Configure the CI/CD pipeline.
-   - Deploy the application.
+   - Set up the Azure infrastructure using your IaC tool.
+   - Configure secrets (e.g., Key Vault access).
+   - Set up and run the GitHub Actions workflow.
+   - Access the deployed application.
 - **Monitoring & Logging**: Explanation of how monitoring and logging were implemented using Azure Monitor and Log Analytics, including what metrics and alerts are set up.
+   - Metrics and alerts configured (e.g., CPU %, 5xx error rates).
+   - Log Analytics workspace setup and query examples (if applicable).
 - **Security Measures**: Detailed description of the security configurations, including the use of Azure Key Vault and SSL/TLS setup.
 - **Scalability Considerations**: Explanation of manual scaling configuration and theoretical discussion on auto-scaling.
 - **Testing Instructions**: Guidance on how to test the setup, including any simulated traffic tests for scalability.
+- **Cleanup Instructions**: (Optional) Manual or scripted steps to clean up Azure resources to avoid exceeding free tier limits.
 - **Rollback Mechanism**: (Optional) Describe the rollback mechanism if implemented.
 - **Disaster Recovery Plan**: (Optional) A brief description of a disaster recovery strategy.
+- **Known Issues & Limitations**: Mention anything unfinished or non-functional, if applicable.
 
 ### 3. Video Demonstration (Optional)
 A short video (5-10 minutes) demonstrating:
 - The CI/CD pipeline in action (e.g., triggering a deployment with a git push).
+- Deployed app.
 - Monitoring alerts and logging in Azure.
 - Manual scaling of the Azure App Service.
 The video should be hosted on a platform like YouTube (unlisted) or shared as a downloadable file.
 
 ### 4. Testing & Verification
-Ensure that the entire setup works from end to end. The CI/CD pipeline should successfully deploy the application to Azure, and the monitoring, security, and scalability features should be demonstrable.
+Ensure that the entire setup works from end to end. 
+- CI/CD runs successfully.
+- App deploys and is accessible.
+- Monitoring and alerts function correctly.
+- Security features are in place.
 
-### 5. Submission Format
+### 5. Time Expectation
+This challenge is expected to take approximately 5–8 hours depending on your familiarity with Azure and GitHub Actions. Focus on a functional and well-documented solution. Bonus tasks are optional.
+
+### 6. Submission Format
 - All files and documentation should be committed and pushed to the GitHub repository.
 - Provide a summary in the repository's README.md of any known issues or limitations.
 - Email the submission details (GitHub repository link and optional video link) to the provided contact address.
+- Make sure the repository is public and well-organized.
 
