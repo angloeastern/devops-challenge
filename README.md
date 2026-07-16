@@ -85,6 +85,7 @@ A short video (5-10 minutes) demonstrating:
 - Deployed app.
 - Monitoring alerts and logging in Azure.
 - Manual scaling of the Azure App Service.
+
 The video should be hosted on a platform like YouTube (unlisted) or shared as a downloadable file.
 
 ### 4. Testing & Verification
